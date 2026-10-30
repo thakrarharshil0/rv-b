@@ -154,6 +154,7 @@ class OrderController extends Controller
                     'total' => (float) $order->total,
                     'amount' => (float) $order->total, // For frontend compatibility
                     'status' => ucfirst($order->status),
+                    'paymentMethod' => $order->payment_method ? ucfirst($order->payment_method) : 'Credit Card',
                     'paymentStatus' => $order->payment_method === 'cod' ? 'Pending' : 'Paid', // Simplified logic
                     'itemsCount' => (int) $order->items_count,
                     'date' => $order->created_at->toISOString(),
